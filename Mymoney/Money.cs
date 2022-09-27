@@ -11,6 +11,12 @@ namespace MyMoney
         protected int amount;
         protected string? currency;
 
+        protected Money(int amount, string currency)
+        {
+            this.amount = amount;
+            this.currency = currency;
+        }
+
         public abstract Money Times(int multiplier);
 
         public static Dollar Dollar(int amount)

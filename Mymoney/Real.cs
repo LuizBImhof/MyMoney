@@ -2,10 +2,9 @@
 {
     public class Real : Money
     {
-        public Real(int amount, string currency)
+        public Real(int amount, string currency) : base(amount, currency)
         {
-            this.amount = amount;
-            this.currency = currency;
+
         }
 
         public override Money Times(int multiplier)
