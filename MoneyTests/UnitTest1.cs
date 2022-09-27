@@ -24,11 +24,11 @@ namespace MoneyTests
         [TestMethod]
         public void TestEquality()
         {
-            Assert.IsTrue(new Dollar(5).Equals(new Dollar(5)));
-            Assert.IsFalse(new Dollar(5).Equals(new Dollar(6)));
-            Assert.IsTrue(new Real(5).Equals(new Real(5)));
-            Assert.IsFalse(new Real(5).Equals(new Real(6)));
-            Assert.IsFalse(new Dollar(5).Equals(new Real(5)));
+            Assert.IsTrue(Money.Dollar(5).Equals(Money.Dollar(5)));
+            Assert.IsFalse(Money.Dollar(5).Equals(Money.Dollar(6)));
+            Assert.IsTrue(Money.Real(5).Equals(Money.Real(5)));
+            Assert.IsFalse(Money.Real(5).Equals(Money.Real(6)));
+            Assert.IsFalse(Money.Dollar(5).Equals(Money.Real(5)));
         }
 
         [TestMethod]
