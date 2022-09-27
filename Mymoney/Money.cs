@@ -9,19 +9,22 @@ namespace MyMoney
     public abstract class Money
     {
         protected int amount;
+        protected string? currency;
 
         public abstract Money Times(int multiplier);
 
-        public abstract string Currency();
-
         public static Dollar Dollar(int amount)
         {
-            return new Dollar(amount);
+            return new Dollar(amount, "USD");
         }
 
         public static Real Real(int amount)
         {
-            return new Real(amount);
+            return new Real(amount, "BRL");
+        }
+        public string Currency()
+        {
+            return this.currency;
         }
 
         public override bool Equals(object? obj)

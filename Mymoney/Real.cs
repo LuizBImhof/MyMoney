@@ -2,20 +2,15 @@
 {
     public class Real : Money
     {
-
-        public Real(int amount)
+        public Real(int amount, string currency)
         {
             this.amount = amount;
-        }
-
-        public override string Currency()
-        {
-            return "BRL";
+            this.currency = currency;
         }
 
         public override Money Times(int multiplier)
         {
-            return new Real(amount * multiplier);
+            return Money.Real(amount * multiplier);
         }
     }
 }
