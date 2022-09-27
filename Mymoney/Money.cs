@@ -12,6 +12,7 @@ namespace MyMoney
 
         public abstract Money Times(int multiplier);
 
+        public abstract string Currency();
 
         public static Dollar Dollar(int amount)
         {

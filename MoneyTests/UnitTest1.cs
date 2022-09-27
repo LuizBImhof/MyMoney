@@ -30,5 +30,12 @@ namespace MoneyTests
             Assert.IsFalse(new Real(5).Equals(new Real(6)));
             Assert.IsFalse(new Dollar(5).Equals(new Real(5)));
         }
+
+        [TestMethod]
+        public void TestCurrency()
+        {
+            Assert.AreEqual("USD", Money.Dollar(1).Currency());
+            Assert.AreEqual("BRL", Money.Real(1).Currency());
+        }
     }
 }
