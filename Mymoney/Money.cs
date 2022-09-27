@@ -36,7 +36,7 @@ namespace MyMoney
         public override bool Equals(object? obj)
         {
             Money money = (Money)obj;
-            return amount == money.amount && GetType().Equals(money.GetType()); // Temporary check of class
+            return amount == money.amount && currency.Equals(money.currency);
         }
 
     }
