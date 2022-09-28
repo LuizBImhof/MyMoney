@@ -9,7 +9,7 @@ namespace MyMoney
     public class Money
     {
         protected int amount;
-        protected string? currency;
+        protected string currency;
 
         public Money(int amount, string currency)
         {
@@ -22,14 +22,14 @@ namespace MyMoney
             return new Money(amount*multiplier,currency);
         }
 
-        public static Dollar Dollar(int amount)
+        public static Money Dollar(int amount)
         {
-            return new Dollar(amount, "USD");
+            return new Money(amount, Constants.DollarCurrency);
         }
 
-        public static Real Real(int amount)
+        public static Money Real(int amount)
         {
-            return new Real(amount, "BRL");
+            return new Money(amount, Constants.RealCurrency);
         }
         public string Currency()
         {
@@ -38,9 +38,17 @@ namespace MyMoney
 
         public override bool Equals(object? obj)
         {
+            if(obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
             Money money = (Money)obj;
             return amount == money.amount && currency.Equals(money.currency);
         }
 
+        public override int GetHashCode()
+        {
+            return 0;
+        }
     }
 }
