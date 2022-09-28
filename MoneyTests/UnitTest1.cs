@@ -8,7 +8,7 @@ namespace MoneyTests
         [TestMethod]
         public void TestDollarMultiplication()
         {
-            Money five = Money.Dollar(5); // factory method
+            Money five = Money.Dollar(5);
             Assert.IsTrue(Money.Dollar(10).Equals(five.Times(2)));
             Assert.IsTrue(Money.Dollar(15).Equals(five.Times(3)));
         }
@@ -34,6 +34,13 @@ namespace MoneyTests
         {
             Assert.AreEqual("USD", Money.Dollar(1).Currency());
             Assert.AreEqual("BRL", Money.Real(1).Currency());
+        }
+
+        [TestMethod]
+        public void TestSimpleAddition()
+        {
+            Money sum = Money.Dollar(5).plus(Money.Dollar(5));
+            Assert.AreEqual(Money.Dollar(10), sum);
         }
     }
 }

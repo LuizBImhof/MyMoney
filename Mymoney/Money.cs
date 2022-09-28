@@ -17,11 +17,6 @@ namespace MyMoney
             this.currency = currency;
         }
 
-        public Money Times(int multiplier)
-        {
-            return new Money(amount*multiplier,currency);
-        }
-
         public static Money Dollar(int amount)
         {
             return new Money(amount, Constants.DollarCurrency);
@@ -34,6 +29,16 @@ namespace MyMoney
         public string Currency()
         {
             return this.currency;
+        }
+
+        public Money Times(int multiplier)
+        {
+            return new Money(amount * multiplier, currency);
+        }
+
+        public Money plus(Money addend)
+        {
+            return new Money(amount + addend.amount, currency);
         }
 
         public override bool Equals(object? obj)
