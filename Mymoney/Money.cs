@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace MyMoney
 {
-    public abstract class Money
+    public class Money
     {
         protected int amount;
         protected string? currency;
 
-        protected Money(int amount, string currency)
+        public Money(int amount, string currency)
         {
             this.amount = amount;
             this.currency = currency;
         }
 
-        public abstract Money Times(int multiplier);
+        public Money Times(int multiplier)
+        {
+            return new Money(amount*multiplier,currency);
+        }
 
         public static Dollar Dollar(int amount)
         {

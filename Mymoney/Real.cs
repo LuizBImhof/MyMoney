@@ -7,9 +7,5 @@
 
         }
 
-        public override Money Times(int multiplier)
-        {
-            return Money.Real(amount * multiplier);
-        }
     }
 }
