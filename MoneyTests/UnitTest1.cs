@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyMoney;
 
 namespace MoneyTests
@@ -44,6 +45,33 @@ namespace MoneyTests
             Bank bank = new Bank();
             Money reduced = bank.Reduce(sum, "USD");
             Assert.AreEqual(Money.Dollar(10), reduced);
+        }
+
+        [TestMethod]
+        public void TestPlusReturnSum()
+        {
+            Money five = Money.Dollar(5);
+            Calculation result = five.plus(five);
+            Sum sum = (Sum)result;
+            Assert.AreEqual(five, sum.augend);
+            Assert.AreEqual(five, sum.addend);
+        }
+
+        [TestMethod]
+        public void TestReduceSum()
+        {
+            Calculation sum = new Sum(Money.Real(3),Money.Real(4));
+            Bank bank = new Bank();
+            Money result = bank.Reduce(sum, "BRL");
+            Assert.AreEqual(Money.Real(7),result);
+        }
+
+        [TestMethod]
+        public void TestReduceMoney()
+        {
+            Bank bank = new Bank();
+            Money result = bank.Reduce(Money.Dollar(1), "USD");
+            Assert.AreEqual(Money.Dollar(1), result);
         }
     }
 }

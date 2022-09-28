@@ -8,7 +8,7 @@ namespace MyMoney
 {
     public class Money : Calculation 
     {
-        protected int amount;
+        public int amount;
         protected string currency;
 
         public Money(int amount, string currency)
@@ -38,7 +38,7 @@ namespace MyMoney
 
         public Calculation plus(Money addend)
         {
-            return new Money(amount + addend.amount, currency);
+            return new Sum(this,addend);
         }
 
         public override bool Equals(object? obj)
@@ -54,6 +54,11 @@ namespace MyMoney
         public override int GetHashCode()
         {
             return 0;
+        }
+
+        Money Calculation.Reduce(string to)
+        {
+            return this;
         }
     }
 }
