@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyMoney
 {
-    public class Money
+    public class Money : Calculation 
     {
         protected int amount;
         protected string currency;
@@ -36,7 +36,7 @@ namespace MyMoney
             return new Money(amount * multiplier, currency);
         }
 
-        public Money plus(Money addend)
+        public Calculation plus(Money addend)
         {
             return new Money(amount + addend.amount, currency);
         }

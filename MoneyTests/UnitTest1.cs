@@ -39,8 +39,11 @@ namespace MoneyTests
         [TestMethod]
         public void TestSimpleAddition()
         {
-            Money sum = Money.Dollar(5).plus(Money.Dollar(5));
-            Assert.AreEqual(Money.Dollar(10), sum);
+            Money five = Money.Dollar(5);
+            Calculation sum = five.plus(five);
+            Bank bank = new Bank();
+            Money reduced = bank.Reduce(sum, "USD");
+            Assert.AreEqual(Money.Dollar(10), reduced);
         }
     }
 }
